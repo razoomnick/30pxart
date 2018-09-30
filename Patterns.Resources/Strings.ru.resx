@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Ago" xml:space="preserve">
+    <value>назад</value>
+  </data>
+  <data name="Brush" xml:space="preserve">
+    <value>Кисть</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Days1" xml:space="preserve">
+    <value>день</value>
+  </data>
+  <data name="Days2" xml:space="preserve">
+    <value>дня</value>
+  </data>
+  <data name="Days3" xml:space="preserve">
+    <value>дней</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Черновик</value>
+  </data>
+  <data name="Drafts" xml:space="preserve">
+    <value>Черновики</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Рисовать</value>
+  </data>
+  <data name="DrawPatternsOnline" xml:space="preserve">
+    <value>Рисуйте паттерны онлайн</value>
+  </data>
+  <data name="DrawYourPattern" xml:space="preserve">
+    <value>Нарисуй свой паттерн!</value>
+  </data>
+  <data name="Erase" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="Eyedropper" xml:space="preserve">
+    <value>Выбор цвета</value>
+  </data>
+  <data name="Feed" xml:space="preserve">
+    <value>Моя лента</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Заливка</value>
+  </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Подписаться</value>
+  </data>
+  <data name="Followers" xml:space="preserve">
+    <value>Подписчики</value>
+  </data>
+  <data name="Following" xml:space="preserve">
+    <value>Подписан на</value>
+  </data>
+  <data name="Hours1" xml:space="preserve">
+    <value>часа</value>
+  </data>
+  <data name="Hours2" xml:space="preserve">
+    <value>часа</value>
+  </data>
+  <data name="Hours3" xml:space="preserve">
+    <value>часов</value>
+  </data>
+  <data name="JustNow" xml:space="preserve">
+    <value>только что</value>
+  </data>
+  <data name="LatinLettersDigitsAndUnderscoreOnly" xml:space="preserve">
+    <value>Подойдут английские буквы, цифры и знак подчёркивания</value>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Нравится</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="Minutes1" xml:space="preserve">
+    <value>минуту</value>
+  </data>
+  <data name="Minutes2" xml:space="preserve">
+    <value>минуты</value>
+  </data>
+  <data name="Minutes3" xml:space="preserve">
+    <value>минут</value>
+  </data>
+  <data name="MostLiked" xml:space="preserve">
+    <value>Лучшие</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Переместить</value>
+  </data>
+  <data name="NameContainsInappropriateSymbols" xml:space="preserve">
+    <value>Какие-то нехорошие символы в имени</value>
+  </data>
+  <data name="NameIsAlreadyTaken" xml:space="preserve">
+    <value>Имя уже занято</value>
+  </data>
+  <data name="NameIsEmpty" xml:space="preserve">
+    <value>Пустое имя не годится</value>
+  </data>
+  <data name="NoLikes" xml:space="preserve">
+    <value>Понравился паттерн? Жмите на сердечко!</value>
+  </data>
+  <data name="Override" xml:space="preserve">
+    <value>Перезаписать</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>↵</value>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Новые</value>
+  </data>
+  <data name="Redo" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="ReflectHorizontally" xml:space="preserve">
+    <value>Отразить по горизонтали</value>
+  </data>
+  <data name="ReflectVertically" xml:space="preserve">
+    <value>Отразить по вертикали</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="Resize" xml:space="preserve">
+    <value>Изменить размер</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SaveNew" xml:space="preserve">
+    <value>Создать новый</value>
+  </data>
+  <data name="SavePattern" xml:space="preserve">
+    <value>Сохранить паттерн</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Выделить</value>
+  </data>
+  <data name="SelectUserName" xml:space="preserve">
+    <value>Выберите себе псевдоним</value>
+  </data>
+  <data name="ShowHideGrid" xml:space="preserve">
+    <value>Показать/скрыть сетку</value>
+  </data>
+  <data name="ShowHidePixelGrid" xml:space="preserve">
+    <value>Показать/скрыть пиксельную сетку</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Показать больше</value>
+  </data>
+  <data name="SignInOrSignUp" xml:space="preserve">
+    <value>Войти или зарегистрироваться</value>
+  </data>
+  <data name="SignInWithFacebook" xml:space="preserve">
+    <value>через Фейсбук</value>
+  </data>
+  <data name="SignInWithVk" xml:space="preserve">
+    <value>через Вконтакте</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="Unfollow" xml:space="preserve">
+    <value>Отписаться</value>
+  </data>
+  <data name="Weeks1" xml:space="preserve">
+    <value>неделю</value>
+  </data>
+  <data name="Weeks2" xml:space="preserve">
+    <value>недели</value>
+  </data>
+  <data name="Weeks3" xml:space="preserve">
+    <value>недель</value>
+  </data>
+  <data name="WriteAComment" xml:space="preserve">
+    <value>Напишите комментарий...</value>
+  </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Увеличить</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Уменьшить</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Вставить</value>
+  </data>
+  <data name="DeleteLayers" xml:space="preserve">
+    <value>Удалить слои</value>
+  </data>
+  <data name="NewLayer" xml:space="preserve">
+    <value>Создать новый слой</value>
+  </data>
+  <data name="Eraser" xml:space="preserve">
+    <value>Ластик</value>
+  </data>
+  <data name="Deselect" xml:space="preserve">
+    <value>Убрать выделение</value>
+  </data>
+  <data name="Brush1" xml:space="preserve">
+    <value>Кисть 1</value>
+  </data>
+  <data name="Brush3" xml:space="preserve">
+    <value>Кисть 3</value>
+  </data>
+  <data name="Brush5" xml:space="preserve">
+    <value>Кисть 5</value>
+  </data>
+  <data name="Brush7" xml:space="preserve">
+    <value>Кисть 7</value>
+  </data>
+  <data name="MergeLayers" xml:space="preserve">
+    <value>Объединить слои</value>
+  </data>
+  <data name="BestUnregistered" xml:space="preserve">
+    <value>Лучшие анонимные</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Галерея</value>
+  </data>
+  <data name="MostCommented" xml:space="preserve">
+    <value>Самые комментируемые</value>
+  </data>
+  <data name="RecentUnregistered" xml:space="preserve">
+    <value>Новые анонимные</value>
+  </data>
+  <data name="APatternBy" xml:space="preserve">
+    <value>Этот паттерн нарисовал</value>
+  </data>
+  <data name="Brush8" xml:space="preserve">
+    <value>Восьмирог</value>
+  </data>
+  <data name="SignInWithInstagram" xml:space="preserve">
+    <value>через Инстаграм</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Фильтр:</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Smoothing" xml:space="preserve">
+    <value>Сглаживание</value>
+  </data>
+  <data name="Tiles" xml:space="preserve">
+    <value>Плитка</value>
+  </data>
+  <data name="Embroidery" xml:space="preserve">
+    <value>Вышивка</value>
+  </data>
+  <data name="Days4" xml:space="preserve">
+    <value>день</value>
+  </data>
+  <data name="Hours4" xml:space="preserve">
+    <value>час</value>
+  </data>
+  <data name="Minutes4" xml:space="preserve">
+    <value>минуту</value>
+  </data>
+  <data name="Months4" xml:space="preserve">
+    <value>месяц</value>
+  </data>
+  <data name="Weeks4" xml:space="preserve">
+    <value>неделю</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Контактная информация</value>
+  </data>
+  <data name="JoinCommunity" xml:space="preserve">
+    <value>Присоединяйтесь к нашему сообществу Вконтакте</value>
+  </data>
+  <data name="MemberAlready" xml:space="preserve">
+    <value>зарегистрировался</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>Произошла ошибка.</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Главная страница</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Страница не найдена.</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Опубликовать</value>
+  </data>
+  <data name="ToDrafts" xml:space="preserve">
+    <value>В черновики</value>
+  </data>
+  <data name="Knitting" xml:space="preserve">
+    <value>Вязание</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>30pxart — онлайн инструмент для рисования паттернов, орнаметнов, вязаных текстур, вышивки, плиточных узоров. Нарисованные паттерны можно скачать в векторном формате. Нарисуйте паттерн, примените фильтр, поделитесь результатом с друзьями!</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>30pxart, пиксель арт, рисование, рисовать онлайн, рисовать паттерны, рисовать бесшовные паттерны онлайн, орнаменты, паттерн вязание,бесшовные паттерны</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="EmbroideryTexture" xml:space="preserve">
+    <value>Вышитый узор</value>
+  </data>
+  <data name="KnittingTexture" xml:space="preserve">
+    <value>Вязаная текстура</value>
+  </data>
+  <data name="PixelArt" xml:space="preserve">
+    <value>Пиксельная графика</value>
+  </data>
+  <data name="SeamlessPattern" xml:space="preserve">
+    <value>Бесшовный паттерн</value>
+  </data>
+  <data name="TilesTexture" xml:space="preserve">
+    <value>Текстура из плитки</value>
+  </data>
+  <data name="MobileApplication" xml:space="preserve">
+    <value>Попробуйте наше &lt;a href="https://play.google.com/store/apps/details?id=dfgden.pxart.com.pxart" target="_blank"&gt;мобильное приложение&lt;/a&gt; для Андроида.</value>
+  </data>
+  <data name="Vector" xml:space="preserve">
+    <value>(вектор)</value>
+  </data>
+  <data name="Wallpaper" xml:space="preserve">
+    <value>Обои</value>
+  </data>
+</root>

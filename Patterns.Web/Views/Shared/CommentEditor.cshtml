@@ -1,0 +1,6 @@
+﻿@using Patterns.Resources
+@model Patterns.Objects.Aggregated.ApiPattern
+<div class="new-comment">
+  <input type="button" class="btn-primary" value="@Strings.Post" data-pattern-id="@Model.Id" />
+  <span><input type="text" placeholder="@Strings.WriteAComment" id="@("txtComment" + @Model.Id)" class="txt-comment" data-pattern-id="@Model.Id"/></span>
+</div>

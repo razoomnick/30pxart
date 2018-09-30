@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{861CBCB0-9538-4741-ADCA-A25C77E58EE7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Patterns.Objects</RootNamespace>
+    <AssemblyName>Patterns.Objects</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregated\ApiComment.cs" />
+    <Compile Include="Aggregated\ApiFollowing.cs" />
+    <Compile Include="Aggregated\ApiPattern.cs" />
+    <Compile Include="Aggregated\ApiLike.cs" />
+    <Compile Include="Aggregated\ApiToken.cs" />
+    <Compile Include="Aggregated\ApiUser.cs" />
+    <Compile Include="DataInterfaces\IBaseRepository.cs" />
+    <Compile Include="DataInterfaces\ICommentsRepository.cs" />
+    <Compile Include="DataInterfaces\IFollowingsRepository.cs" />
+    <Compile Include="DataInterfaces\ILikesRepository.cs" />
+    <Compile Include="DataInterfaces\ITokensRepository.cs" />
+    <Compile Include="DataInterfaces\IUsersRepository.cs" />
+    <Compile Include="DataInterfaces\IPatternImagesRepository.cs" />
+    <Compile Include="DataInterfaces\IPatternsRepository.cs" />
+    <Compile Include="Entities\Following.cs" />
+    <Compile Include="Entities\DatabaseObject.cs" />
+    <Compile Include="Entities\Comment.cs" />
+    <Compile Include="Entities\PatternImage.cs" />
+    <Compile Include="Entities\Like.cs" />
+    <Compile Include="Entities\Pattern.cs" />
+    <Compile Include="Entities\Token.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

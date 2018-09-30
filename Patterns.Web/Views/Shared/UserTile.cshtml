@@ -1,0 +1,15 @@
+﻿@using Patterns.Web.Helpers
+@model Patterns.Objects.Aggregated.ApiUser
+@{
+  Layout = null;
+}
+
+@if (Model != null)
+{
+  <span class="user" data-user-name="@Model.Name">
+    <a href="@Url.Action("Profile", "Users", new {name = Model.Name})">
+      <img src="@Url.AvatarUrl(@Model)" class="avatar">
+      <span class="lnk-profile" href="@Url.Action("Profile", "Users", new {name = Model.Name})">@Model.Name</span>
+    </a>
+  </span>
+}

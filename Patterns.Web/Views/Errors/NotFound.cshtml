@@ -1,0 +1,16 @@
+﻿@using Patterns.Resources
+@model Patterns.Web.Models.BaseModel
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="table">
+  <div class="table-cell">
+    <div class="popup">
+      <h3 class="header">@Strings.PageNotFound</h3>
+      <div class="popup-content">
+        <p>@Strings.PageNotFound <a href="@Url.Action("Index", "Patterns")">@Strings.MainPage</a></p>
+      </div>
+    </div>
+  </div>
+</div>

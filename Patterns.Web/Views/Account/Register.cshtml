@@ -1,0 +1,23 @@
+﻿@using Patterns.Resources
+@model Patterns.Web.Models.Viewer.RegisterModel
+@{
+  Layout = "~/Views/Shared/Layout.cshtml";
+  ViewBag.Title = "Login";
+}
+
+<div class="table">
+  <div class="table-cell">
+    <div class="popup">
+      <h3 class="header">@Strings.SelectUserName</h3>
+      <form class="popup-content" action="@Url.Action("Register")" method="POST">
+        <div class="hint">@Strings.LatinLettersDigitsAndUnderscoreOnly</div>
+        <input type="text" id="txtName" value="@Model.Name" name="name"/>
+        <input type="submit" value="@Strings.Register" id="btnSaveSubmit" class="btn-primary" />
+        @if (!String.IsNullOrEmpty(Model.ErrorMessage))
+        {
+          <div class="error">@Model.ErrorMessage</div>
+        }
+      </form>
+    </div>
+  </div>
+</div>

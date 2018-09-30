@@ -1,0 +1,33 @@
+﻿@using Patterns.Web.Helpers
+@model Patterns.Web.Models.Viewer.PatternModel
+@{
+  ViewBag.Title = "PatternTile";
+}
+
+<div class="item">
+  <a href="@Url.Action("Pattern", "Patterns", new {id = Model.Pattern.Id})" class="pattern" style="background: url(@Url.ImageUrl(Model.Pattern)) repeat;"></a>
+  @Html.Partial("PatternStats", Model)
+  @if (Model.Pattern.Author != null)
+  {
+    <div class="author">
+      <span class="comment">
+        @Html.Partial("UserTile", Model.Pattern.Author)
+        <span class="time">@Html.TimeAgo(Model.Pattern.CreationTime)</span>
+        <span class="comment-text">@Model.Pattern.Name</span>
+      </span>
+    </div>
+  }
+  @if (Model.Pattern.Comments.Any() || Model.CurrentUser != null)
+  {
+    <div class="comments" id="@("plhComments" + Model.Pattern.Id)">
+      @foreach (var comment in @Model.Pattern.Comments)
+      {
+        @Html.Partial("CommentTile", comment)
+      }
+    </div>
+  }
+  @if (Model.CurrentUser != null)
+  {
+    @Html.Partial("CommentEditor", Model.Pattern)
+  }
+</div>

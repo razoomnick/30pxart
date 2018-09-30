@@ -1,0 +1,61 @@
+﻿@using Patterns.Objects.Aggregated
+@using Patterns.Resources
+@using Patterns.Web.Models.Viewer
+@model GalleryModel
+
+@if (Model.ShowDescription)
+{
+  <div id="description">
+            <div class="vk-share" 
+             data-url="@Url.Action("Index", "Patterns", new {}, Request.Url.Scheme)" 
+             data-image-url="http://30pxart.com/Images/Large?id=b1121d87-6cbf-4fdc-b4eb-b9e6e88af4f5" 
+             data-description="@Strings.Description" 
+             data-title="@Strings.DrawPatternsOnline"></div>
+    @Html.Partial("LanguageAndContacts")
+    <div id="description-text">
+      <p class="description-paragraph">
+        @Strings.Description
+      </p>
+      <p class="description-paragraph">
+        @Html.Raw(Strings.MobileApplication)
+      </p>
+    </div>
+  </div>
+}
+
+<div id="gallery">
+  @if (!Request.Browser.IsMobileDevice)
+  {
+    var columns = new List<List<ApiPattern>>();
+    columns.Add(new List<ApiPattern>());
+    columns.Add(new List<ApiPattern>());
+    columns.Add(new List<ApiPattern>());
+    var i = 0;
+    foreach (var apiPattern in Model.Patterns)
+    {
+      columns[i%columns.Count].Add(apiPattern);
+      i++;
+    }
+    for (var j = 0; j < columns.Count; j++)
+    {
+      <div class="column @(j == 0 ? "first" : j == columns.Count - 1 ? "last" : "")">
+        @foreach (var p in columns[j])
+        {
+          @Html.Partial("PatternTile", new PatternModel {CurrentUser = Model.CurrentUser, Pattern = p})
+        }
+      </div>
+    }
+  }
+  else
+  {
+    foreach (ApiPattern p in Model.Patterns)
+    {
+      @Html.Partial("PatternTile", new PatternModel {CurrentUser = Model.CurrentUser, Pattern = p})
+    }
+  }
+  <div class="clear"></div>
+  @if (Model.MoreSkip > 0)
+  {
+    <div class="btn-more-holder"><a class="btn-primary btn-more" href="?skip=@Model.MoreSkip">Show more</a></div>
+  }
+</div>

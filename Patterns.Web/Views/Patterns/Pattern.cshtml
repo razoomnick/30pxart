@@ -1,0 +1,113 @@
+﻿@using Patterns.Resources
+@using Patterns.Web.Helpers
+@model Patterns.Web.Models.Viewer.PatternModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@{
+  var tags = TagsHelper.GetTags(Model.Pattern);
+}
+
+<div class="author-main">
+  @if (Model.Pattern.Author != null)
+  {
+    @Html.Partial("UserTile", Model.Pattern.Author)
+  }
+  <span class="time">@Html.TimeAgo(Model.Pattern.CreationTime)</span>
+  <h2 class="title">@Model.Pattern.Name</h2>
+  <div class="clear"></div>
+</div>
+
+  @if (!Request.Browser.IsMobileDevice)
+  {
+    <div class="column2">
+      <div class="item">
+        <div class="pattern" style="background: url(@Url.ImageUrl(Model.Pattern)) repeat;"></div>
+        @Html.Partial("PatternStats", Model)
+        @if (Model.Pattern.Comments.Any() || Model.CurrentUser != null)
+        {
+          <div class="comments" id="@("plhComments" + Model.Pattern.Id)">
+            @foreach (var comment in @Model.Pattern.Comments)
+            {
+              @Html.Partial("CommentTile", comment)
+            }
+          </div>
+        }
+        @if (Model.CurrentUser != null)
+        {
+          @Html.Partial("CommentEditor", Model.Pattern)
+        }
+      </div>
+    </div>
+    <div class="column">
+      <div class="pattern-info">
+        <div class="pattern-likes">
+          <div class="likes-title">@Strings.Likes:</div>
+          @foreach (var like in Model.Likes)
+          {
+            @Html.Partial("UserTile", like)
+          }
+        </div>
+        <div class="vk-share"
+             data-url="@Url.Action("Pattern", "Patterns", new {id = Model.Pattern.Id}, Request.Url.Scheme)"
+             data-image-url="@Url.Action("Large", "Images", new {id = Model.Pattern.ImageId}, Request.Url.Scheme)"
+             data-description="@(Strings.APatternBy + " " + (Model.Pattern.Author != null ? Model.Pattern.Author.Name : "") + ". " + Strings.DrawYourPattern)"
+             data-title="@Model.Pattern.Name"></div>
+        @if (tags != null && tags.Any())
+        {
+          <ul class="tags">
+            @foreach (var tag in tags)
+            {
+              <li class="tag">@tag</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  }
+  else
+  {
+    <div class="item">
+      <div class="pattern" style="background: url(@Url.ImageUrl(Model.Pattern)) repeat;"></div>
+      @Html.Partial("PatternStats", Model)
+      @if (Model.Pattern.Comments.Any() || Model.CurrentUser != null)
+      {
+        <div class="comments" id="@("plhComments" + Model.Pattern.Id)">
+          @foreach (var comment in @Model.Pattern.Comments)
+          {
+            @Html.Partial("CommentTile", comment)
+          }
+        </div>
+      }
+      @if (Model.CurrentUser != null)
+      {
+        @Html.Partial("CommentEditor", Model.Pattern)
+      }
+      <div class="pattern-info">
+        <div class="pattern-likes">
+          <div class="likes-title">@Strings.Likes:</div>
+          @foreach (var like in Model.Likes)
+          {
+            @Html.Partial("UserTile", like)
+          }
+        </div>
+        <div class="vk-share"
+             data-url="@Url.Action("Pattern", "Patterns", new {id = Model.Pattern.Id}, Request.Url.Scheme)"
+             data-image-url="@Url.Action("Large", "Images", new {id = Model.Pattern.ImageId}, Request.Url.Scheme)"
+             data-description="@(Strings.APatternBy + " " + (Model.Pattern.Author != null ? Model.Pattern.Author.Name : "") + ". " + Strings.DrawYourPattern)"
+             data-title="@Model.Pattern.Name"></div>
+        @if (tags != null && tags.Any())
+        {
+          <ul class="tags">
+            @foreach (var tag in tags)
+            {
+              <li class="tag">@tag</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  }
+<div class="clear"></div>

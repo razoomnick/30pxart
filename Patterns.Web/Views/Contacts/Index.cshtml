@@ -1,0 +1,14 @@
+﻿@using Patterns.Resources
+@model Patterns.Web.Models.BaseModel
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="content-block">
+  <p>@Strings.JoinCommunity</p>
+  <div id="vkGroup"></div>
+  <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.onload = function() { VK.Widgets.Group("vkGroup", { mode: 0, width: 'auto', height: 550 }, 94944529); };
+  </script>
+</div>

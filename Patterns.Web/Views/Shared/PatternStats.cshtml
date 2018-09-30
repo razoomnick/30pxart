@@ -1,0 +1,43 @@
+﻿@using Patterns.Resources
+@model Patterns.Web.Models.Viewer.PatternModel
+<div class="likes">
+  <span class="icon like @(Model.Pattern.Liked ? "liked" : "") @(Model.CurrentUser != null ? "enabled" : "disabled")" data-pattern-id="@Model.Pattern.Id"></span>
+  <span id="@("lblLikesCount" + Model.Pattern.Id)">@Model.Pattern.LikesCount</span>
+  <span class="icon comments-icon"></span>
+  <span id="@("lblCommentsCount" + Model.Pattern.Id)">@Model.Pattern.CommentsCount</span>
+  @{
+    var isAuthor = Model.Pattern.Author != null && Model.CurrentUser != null && Model.Pattern.Author.Id == Model.CurrentUser.Id;
+    var isModerator = Model.CurrentUser != null && Model.CurrentUser.Name == "admin";
+  }
+  <div class="edit-pattern">
+    @if ((isAuthor || isModerator) && Model.OnePatternOnPage)
+    {
+      <form class="drafts-form" action="@Url.Action("DraftState", "Patterns", new { id = Model.Pattern.Id })" method="POST">
+        <a class="link-submit" href="javascript:void(0);">@(Model.Pattern.IsDraft ? Strings.Publish : Strings.ToDrafts)</a>
+      </form>
+    }
+    @if (isAuthor && Model.OnePatternOnPage)
+    {
+      <a class="edit" href="@Url.Action("Index", "Edit", new { id = Model.Pattern.Id })">@Strings.Edit</a>
+    }
+    @if (Model.OnePatternOnPage)
+    {
+      if (Model.Pattern.Author == null || (Model.CurrentUser != null && Model.CurrentUser.Id == Model.Pattern.Author.Id))
+      {
+        <span class="download-wrapper">
+        <a href="javascript:void(0)">@Strings.Download</a>
+        <ul class="submenu">
+          <li><a class="" href="@Url.Action("Vector", "Patterns", new {id = Model.Pattern.Id, filter = "voronoi"})">Voronoi @Strings.Vector</a></li>
+          <li><a class="" href="@Url.Action("Vector", "Patterns", new {id = Model.Pattern.Id, filter = "embroidery"})">@Strings.Embroidery @Strings.Vector</a></li>
+          <li><a class="" href="@Url.Action("Vector", "Patterns", new {id = Model.Pattern.Id, filter = "knitting"})">@Strings.Knitting @Strings.Vector</a></li>
+          <li><a class="download" href="@Url.Action("Index", "Images", new {id = Model.Pattern.ImageId})">@Strings.Wallpaper</a></li>
+        </ul>
+      </span>
+      }
+      else
+      {
+        <a class="download" href="@Url.Action("Index", "Images", new {id = Model.Pattern.ImageId})">@Strings.Download</a>
+      }
+    }
+  </div>
+</div>

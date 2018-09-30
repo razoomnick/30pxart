@@ -1,0 +1,11 @@
+﻿@using Patterns.Web.Helpers
+@model Patterns.Objects.Aggregated.ApiComment
+@{
+    Layout = null;
+}
+
+<span class="comment">
+  @Html.Partial("UserTile", new ViewDataDictionary(Model.Author))
+  <span class="time">@Html.TimeAgo(Model.CreationTime)</span>
+  <span class="comment-text">@Model.Text</span>
+</span>

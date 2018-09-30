@@ -1,0 +1,550 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#header {
+  background: #343434;
+  text-align: right;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+
+#header .content, #footer .content{
+  margin: auto;
+  position: relative;
+  padding: 0;
+}
+
+#header a, #footer a{
+  color: #ccc;
+  font-size: 14px;
+}
+
+#header .avatar {
+  height: 33px;
+  margin-right: 8px;
+  vertical-align: top;
+}
+
+.logo {
+  float: left;
+  margin-top: 11px;
+}
+
+.logo img{
+  vertical-align: bottom;
+}
+
+#footer {
+  background: #343434;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.wrapper {
+  background: #f0f0f0;
+  min-height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 42px;
+  padding-top: 48px;
+}
+
+.content {
+  width: 1080px;
+  padding: 16px 0 0 0px;
+  margin: auto;
+}
+
+.avatar {
+  height: 60px;
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+.item, .profile, .content-block, #description {
+  margin-bottom: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  overflow: hidden;
+}
+
+.content:before, .content:after{
+    content: '';
+    display: table;
+}
+
+.item .avatar {
+  float: left;
+}
+
+.item .footer {
+  text-align: center;
+}
+
+.item .actions {
+  position: absolute;
+  left: 16px;
+}
+
+.item .actions img{
+  vertical-align: bottom;
+}
+
+.item .icon {
+  vertical-align: bottom;
+  display: inline-block;
+  width: 16px;
+  height:16px;
+}
+
+.item .like {
+  background: url(../i/heart.png) no-repeat left center;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.item .comments-icon {
+  background: url(../i/bubble.png) no-repeat left center;
+  margin-left: 8px;
+}
+
+.item .like.liked{
+  background: url(../i/heart-filled.png);
+}
+
+.item .like.disabled{
+  cursor: default;
+}
+
+.item .comments-count {
+  margin-left: 8px;
+}
+
+.item .stats{
+  position: absolute;
+  right: 16px;
+}
+
+.item .pattern {
+  height: 240px;
+  display: block;
+}
+
+.item .comments, .item .author {
+  padding: 0 16px;
+}
+
+.item .comment {
+  display: block;
+  padding: 8px 0;
+  overflow: hidden;
+  color: #000;
+}
+
+.item .comment:first-child {
+  padding-top: 16px;
+}
+
+.item .comment:last-child {
+  padding-bottom: 0;
+}
+
+.item .comments:last-child {
+  padding-bottom: 16px;
+}
+
+.item .comment .avatar {
+  height: 44px;
+  margin-right: 12px;
+}
+
+.item .comment .comment-text {
+  display: flex;
+  margin-top: 8px;
+}
+
+.item .new-comment {
+  background: #fff;
+  display: block;
+  padding: 16px;
+  overflow: hidden;
+  color: #666;
+}
+
+.item .new-comment input[type=text]{
+  width: 100%;
+}
+
+.item .new-comment>span{
+  display: block;
+  overflow: hidden;
+  padding-right: 8px;
+}
+
+.item .new-comment .btn-primary{
+  float: right;
+}
+
+.time {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.profile .header .avatar {
+  float: left;
+}
+
+.profile, .content-block {
+  position: relative;
+  padding: 16px;
+}
+
+.profile .profile-content h2{
+  padding: 16px 0;
+  clear: both;
+}
+
+.profile .followers .user, .profile .followings .user, .pattern-likes .user{
+  display: inline-block;
+  margin: 0 8px 8px 0;
+}
+
+.profile .followers .user .avatar, .profile .followings .user .avatar, .pattern-likes .user .avatar{
+  height: 24px;
+  margin-right: 0;
+  vertical-align: middle;
+}
+
+.profile .profile-content .btn-primary{
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.sign-in, .explanation {
+  padding: 16px;
+  background: #fff;
+}
+
+.btn-facebook {
+  background: url(../i/fb.png) 15px center no-repeat;
+}
+
+.btn-vk {
+  background: url(../i/vk.png) 15px center no-repeat;
+}
+
+.btn-instagram {
+  background: url(../i/instagram.png) 15px center no-repeat;
+}
+
+.btn-more {
+  margin-bottom: 40px;
+}
+
+.btn-more-holder {
+  text-align: center;
+}
+
+.avatar-form {
+  margin-top: 7px;
+}
+
+.hint {
+  margin-bottom: 8px;
+}
+
+.vk-share {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.actions>a {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 8px;
+}
+
+.actions>a>img {
+  vertical-align: middle;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+.column2 {
+  float: left;
+  width: 66.66%;
+}
+
+.column.first .item {
+  margin-left: 0;
+  margin-right: 11px;
+}
+
+.column.last .item {
+  margin-left: 11px;
+  margin-right: 0;
+}
+
+.column .item {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.likes {
+  margin: 16px 16px 0 16px;
+}
+
+.likes:last-child {
+  margin-bottom: 16px;
+}
+
+.author:last-child {
+  margin-bottom: 16px;
+}
+
+.column2 .pattern {
+  height: 400px;
+}
+
+.author-main {
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.author-main .avatar {
+  float: left;
+}
+
+.author-main .user {
+  font-size: 18px;
+}
+
+.author-main .title{
+  padding: 0;
+  margin-top: 16px;
+  font-size: 20px;
+}
+
+.pattern-info {
+  margin-left: 16px;
+  margin-bottom: 16px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.pattern-likes {
+  margin-bottom: -8px;
+}
+
+.likes-title {
+  margin-bottom: 8px;
+}
+
+.btn-follow {
+  float: right;
+}
+
+.followers, .followings {
+  margin-top: 16px;
+  margin-bottom: -8px;
+}
+
+.subtitle {
+  margin-bottom: 6px;
+}
+
+ul.menu>li {
+  display: inline-block;
+  position: relative;
+}
+
+.menu a{
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 9px;
+}
+
+.menu .avatar {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+}
+
+.menu .user {
+  padding-left: 33px;
+  margin-left: 8px;
+}
+
+ul.submenu {
+  visibility: hidden;
+  opacity: 0;
+  text-align: left;
+  z-index: 4;
+  position: absolute;
+  background: #343434;
+  border-radius: 0 0 4px 4px;
+  transition: opacity 0.3s;
+}
+
+ul.menu a{
+  padding: 16px;
+}
+
+ul.menu li:hover {
+  background-color: #286090;
+}
+
+ul.submenu li:hover {
+  background-color: #286090;
+}
+
+ul.menu>li:hover ul.submenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+ul.menu a:hover{
+  text-decoration: none;
+}
+
+ul.submenu a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #ccc;
+}
+
+ul.submenu li:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+ul.submenu.login a {
+  padding-left: 54px;
+}
+
+#footer .logo {
+  float: none;
+  vert-align: middle;
+}
+
+.languages {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.languages a {
+  display: inline-block;
+  margin-left: 6px;
+}
+
+#vkGroup {
+  margin-top: 16px;
+}
+
+.contacts {
+  float: right;
+  margin-top: 6px;
+}
+
+.edit-pattern {
+  float: right;
+}
+
+.drafts-form {
+  display: inline-block;
+}
+
+a.edit, .download-wrapper, .download {
+  margin-left: 8px;
+}
+
+.item .pattern-info {
+  margin: 0;
+  box-shadow: none;
+}
+
+#description {
+  padding: 16px;
+}
+
+#description-text {
+  clear: both;
+  margin-top: 16px;
+}
+
+#description .languages a:first-child {
+  margin-left: 0;
+}
+
+#description .languages {
+  margin-left: 16px;
+}
+
+#description .contacts {
+  margin-top: 0;
+}
+
+#description .vk-share {
+  margin-top: 0;
+  float: left;
+}
+
+.tags {
+  margin-top: 16px;
+}
+
+.tags .tag{
+  display: inline-block;
+  border-radius: 2px;
+  color: #aaaaaa;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.download-wrapper {
+  position: relative;
+  padding-top: 32px;
+}
+
+.download-wrapper .download {
+  margin-left: 0;
+}
+
+.download-wrapper:hover ul.submenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.download-wrapper ul {
+  position: absolute;
+  bottom: 32px;
+  right: -16px;
+  border-radius: 4px 4px 0 0;
+}
+
+.download-wrapper ul li:first-child{
+  border-radius: 4px 4px 0 0;
+}
+
+.description-paragraph {
+  margin-top: 8px;
+}

@@ -1,0 +1,363 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#toolbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 32px;
+  padding: 68px 12px 12px 12px;
+  background: #343434;
+  z-index: 2;
+}
+
+#plhLayers {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  bottom: 48px;
+  overflow: hidden;
+  width: 124px;
+  background: #343434;
+  z-index: 2;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+}
+
+#plhLayerButtons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  height: 24px;
+  width: 100px;
+  padding: 12px;
+  background: #343434;
+  z-index: 3;
+  text-align: center;
+}
+
+#secondaryToolbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 56px;
+  overflow: hidden;
+  height: 32px;
+  padding: 12px;
+  background: #343434;
+  z-index: 3;
+}
+
+#plhViewButtons {
+  float: right;
+  font-size: 0;
+}
+
+#btnSave {
+  background: url(../i/save.png);
+}
+
+#btnBrush {
+  background: url(../i/brush.png);
+}
+
+#btnSelect {
+  background: url(../i/select.png);
+}
+
+#btnSelectSecondary {
+  background: url(../i/select.png);
+}
+
+#btnFill {
+  background: url(../i/fill.png);
+}
+
+#btnMove {
+  background: url(../i/move.png);
+}
+
+#btnCopy {
+  background: url(../i/copy.png);
+}
+
+#btnPaste {
+  background: url(../i/paste.png);
+}
+
+#btnReflectHorizontal {
+  background: url(../i/reflect-horizontal.png);
+}
+
+#btnReflectVertical {
+  background: url(../i/reflect-vertical.png);
+}
+
+#btnGrid {
+  background: url(../i/grid.png);
+}
+
+#btnSharp {
+  background: url(../i/sharp.png);
+}
+
+#btnResize {
+  background: url(../i/resize.png);
+}
+
+#btnZoomIn {
+  background: url(../i/zoom_in.png);
+}
+
+#btnZoomOut {
+  background: url(../i/zoom_out.png);
+}
+
+#btnPick {
+  background: url(../i/pick.png);
+}
+
+#btnUndo {
+  background: url(../i/undo.png);
+}
+
+#btnRedo {
+  background: url(../i/redo.png);
+}
+
+#btnErase {
+  background: url(../i/erase.png);
+}
+
+#btnAddLayer {
+  background: url(../i/new.png);
+}
+
+#btnDeleteLayer {
+  background: url(../i/delete.png);
+}
+#btnMergeLayers {
+  background: url(../i/merge.png);
+}
+
+#btnDelete {
+  background: url(../i/delete.png);
+}
+
+#btnDeselect {
+  background: url(../i/deselect.png);
+}
+
+#btnBrush1 {
+  background: url(../i/brush1.png);
+}
+
+#btnBrush3 {
+  background: url(../i/brush3.png);
+}
+
+#btnBrush5 {
+  background: url(../i/brush5.png);
+}
+
+#btnBrush7 {
+  background: url(../i/brush7.png);
+}
+
+#btnBrush8 {
+  background: url(../i/brush8.png);
+}
+
+#toolbox button, #secondaryToolbox button {
+  width: 32px;
+  height: 32px;
+  outline: 0;
+}
+
+#plhLayerButtons button {
+  width: 24px;
+  height: 24px;
+  outline: 0;
+  margin-right: 8px;
+  background-size: 100%
+}
+
+#toolbox button {
+  margin-bottom: 12px;
+}
+
+#secondaryToolbox button {
+  margin-right: 12px;
+}
+
+#plhViewButtons button:last-child, #plhLayerButtons button:last-child {
+  margin-right: 0;
+}
+
+#lblCoordinates {
+  display: inline-block;
+  margin-right: 14px;
+  position: relative;
+  top: -10px;
+}
+
+#toolbox button:hover, #secondaryToolbox button:hover, #plhLayerButtons button:hover {
+  box-shadow: 0 0 0px 1px #5b88ce;
+}
+
+button.current {
+  box-shadow: 0 0 0px 2px #5b88ce !important;
+}
+
+button.secondary {
+  box-shadow: 0 0 0px 2px #cccccc !important;
+}
+
+#plhCanvas {
+  position: absolute;
+  top: 56px;
+  bottom: 0;
+  left: 56px;
+  right: 124px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+
+#plhCanvas canvas {
+  position: absolute;
+}
+
+#colorPicker {
+  position: absolute;
+  left: -300px;
+}
+
+button.color {
+  background: #ffffff;
+}
+
+#lblCoordinates {
+  color: #cccccc;
+  font-size: 9px;
+  font-family: monospace;
+}
+
+#plhPreview {
+  margin-top: 8px;
+  width: 600px;
+  height: 300px;
+  background-repeat: repeat;
+}
+
+#plhSavePopup label {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+#plhSavePopup #txtName {
+  width: 100%;
+}
+
+#plhSavePopup #plhName {
+  display: block;
+  overflow: hidden;
+  padding-right: 8px;
+}
+
+#plhSavePopup .btn-primary{
+  float: right;
+}
+
+#plhColorButtons {
+  position: absolute;
+  bottom: 0;
+}
+
+#plhSelectionButtons {
+  float: left;
+  font-size: 0;
+}
+
+#plhBrushButtons {
+  float: left;
+  font-size: 0;
+}
+
+#plhNavigation {
+  float: right;
+}
+
+#plhNavigation .avatar{
+  height: 32px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+#plhNavigation a{
+  color: #aaa;
+  display: inline-block;
+  margin-right: 16px;
+  line-height: 32px;
+}
+
+#plhNavigation .user a{
+  margin-right: 0;
+  font-size: 16px;
+}
+
+#plhNavigation .user{
+  font-size: 0;
+}
+
+.preview-item input{
+  vertical-align: top;
+}
+
+.preview-item{
+  padding: 12px;
+}
+
+.preview-item.current{
+  background: #324b72;
+}
+
+.canvas-holder {
+  margin-left: 7px;
+  display: inline-block;
+  background: #fff;
+  width: 80px;
+  font-size: 0;
+}
+
+#selFilterName {
+  margin-right: 12px;
+}
+
+.logo {
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    left: 15px;
+}

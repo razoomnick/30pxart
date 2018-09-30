@@ -1,0 +1,50 @@
+﻿@using Authentication.External
+@using Patterns.Resources
+@using Patterns.Web.Helpers
+@model Patterns.Web.Models.BaseModel
+
+<div id="header">
+  <div class="content">
+    <a class="logo" href="@Url.Action("Index", "Patterns")"><img src="@Url.Content("~/Content/i/logo.png")"/></a>
+    <ul class="menu">
+      <li>
+        <a href="javascript:void(0)">@Strings.Gallery</a>
+        <ul class="submenu">
+          <li><a href="@Url.Action("Index", "Patterns")">@Strings.Recent</a></li>
+          <li><a href="@Url.Action("Best", "Patterns")">@Strings.MostLiked</a></li>
+          <li><a href="@Url.Action("MostCommented", "Patterns")">@Strings.MostCommented</a></li>
+          <li><a href="@Url.Action("RecentUnregistered", "Patterns")">@Strings.RecentUnregistered</a></li>
+          <li><a href="@Url.Action("BestUnregistered", "Patterns")">@Strings.BestUnregistered</a></li>
+        </ul>
+      </li>
+      <li><a href="@Url.Action("Index", "Edit")">@Strings.Draw</a></li>
+      <li>
+        @if (Model.CurrentUser == null)
+        {
+          <a href="javascript:void(0)">@Strings.LogIn</a>
+          <ul class="submenu login">
+            @{ var loginHelper = new MvcLoginHelper();}
+            <li><a class="btn-facebook" href="@loginHelper.GetLoginUrl(FbAuthProvider.ProviderName)">@Strings.SignInWithFacebook</a></li>
+            <li><a class="btn-vk" href="@loginHelper.GetLoginUrl(VkAuthProvider.ProviderName)">@Strings.SignInWithVk</a></li>
+            <li><a class="btn-instagram" href="@loginHelper.GetLoginUrl(InstagramAuthProvider.ProviderName)">@Strings.SignInWithInstagram</a></li>
+          </ul>
+        }
+        else
+        {
+          <span class="user" data-user-name="@Model.CurrentUser.Name">
+            <a href="javascript:void(0)">
+              <img src="@Url.AvatarUrl(@Model.CurrentUser)" class="avatar">
+              <span class="lnk-profile" href="javascript:void(0)">@Model.CurrentUser.Name</span>
+            </a>
+          </span>
+          <ul class="submenu">  
+            <li><a href="@Url.Action("Profile", "Users", new {name = Model.CurrentUser.Name})">@Strings.Profile</a></li>
+            <li><a href="@Url.Action("Drafts", "Patterns")">@Strings.Drafts</a></li>
+            <li><a href="@Url.Action("Feed", "Patterns", new {name = Model.CurrentUser.Name})">@Strings.Feed</a></li>
+            <li><a href="@Url.Action("Logout", "Account")">@Strings.LogOut</a></li>
+          </ul>
+        }
+      </li>
+    </ul>
+  </div>
+</div>

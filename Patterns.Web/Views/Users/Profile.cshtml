@@ -1,0 +1,54 @@
+﻿@using Patterns.Resources
+@using Patterns.Web.Helpers
+@using Patterns.Web.Models.Viewer
+@model UserModel
+@{
+  Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="profile">
+  <div class="author-main">
+    @Html.Partial("UserTile", Model.User)
+    <span class="time">@Strings.MemberAlready @Html.TimeAgo(Model.User.RegisteredTime)</span>
+    @if (Model.CurrentUser != null)
+    {
+      if (Model.User.Id != Model.CurrentUser.Id)
+      {
+        <input type="button" class="btn-primary btn-follow @(Model.User.IsFollowed ? "followed" : "")" data-user-name="@Model.User.Name" data-current-user-name="@Model.CurrentUser.Name" value="@(Model.User.IsFollowed ? Strings.Unfollow : Strings.Follow)" />
+      }
+      else
+      {
+        <form action="@Url.Action("Avatar", "Users")" method="POST" class="avatar-form" enctype="multipart/form-data">
+          <input type="file" name="avatar" id="fileAvatar" accept="image/*"/>
+        </form>
+      }
+    }
+  </div>
+  <div class="clear"></div>
+  <div class="followers">
+    <div class="subtitle">
+      <span>@Strings.Followers</span>
+      (<span id="@("lblFollowersCount" + Model.User.Name)">@Model.User.FollowersCount</span>)
+    </div>
+    <div id="@("plhFollowers" + Model.User.Name)">
+      @foreach (var follower in @Model.User.Followers)
+      {
+        @Html.Partial("UserTile", follower.Subscriber)
+      }
+    </div>
+  </div>
+  <div class="followings">
+    <div class="subtitle">
+      <span>@Strings.Following</span>
+      (<span id="@("lblFollowingsCount" + Model.User.Name)">@Model.User.FollowingCount</span>)
+    </div>
+    <div>
+      @foreach (var following in @Model.User.Followings)
+      {
+        @Html.Partial("UserTile", following.Publisher)
+      }
+    </div>
+  </div>
+</div>
+
+@Html.Partial("Gallery", Model.Gallery)

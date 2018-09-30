@@ -1,0 +1,133 @@
+﻿@using System.Web.Optimization
+@using Newtonsoft.Json
+@using Patterns.Resources
+@model Patterns.Web.Models.Editor.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>@Strings.DrawPatternsOnline</title>
+</head>
+<body>
+  <div id="plhSaveShadow" class="shadow">
+    <div class="table">
+      <div class="table-cell">
+        <div class="popup" id="plhSavePopup">
+          <h3 class="header">@Strings.SavePattern</h3>
+          <div class="popup-content">
+            @Strings.Filter
+            <select id="selFilterName" class="mousetrap">
+              <option value="none">@Strings.None</option>
+              <option value="smoothing">@Strings.Smoothing</option>
+              <option value="tiles">@Strings.Tiles</option>
+              <option value="embroidery">@Strings.Embroidery</option>
+              <option value="knitting">@Strings.Knitting</option>
+            </select>
+            <span id="plhSizeSelector">
+              <input type="radio" name="rbScale" id="rb1x" class="mousetrap" value="1" />
+              <label for="rb1x">1x</label>
+              <input type="radio" name="rbScale" id="rb2x" class="mousetrap" value="2" checked="checked" />
+              <label for="rb2x">2x</label>
+              <input type="radio" name="rbScale" id="rb3x" class="mousetrap" value="3" />
+              <label for="rb3x">3x</label>
+              <input type="radio" name="rbScale" id="rb4x" class="mousetrap" value="4" />
+              <label for="rb4x">4x</label>
+            </span>
+            <div id="plhPreview"></div>
+            <div class="form-line">
+              <input type="submit" value="@Strings.Save" id="btnSaveSubmit" class="btn-primary" />
+              <span id="plhName"><input type="text" id="txtName" value="@Model.Pattern.Name"/></span>
+            </div>
+            @if (Model.CurrentUser != null)
+            {
+              <div class="form-line">
+                @if (Model.Pattern != null && Model.Pattern.Id != default(Guid))
+                {
+                  <input type="hidden" id="txtPatternId" value="@Model.Pattern.Id"/>
+                  <input type="radio" name="rbOverride" id="rbOverride" class="mousetrap" value="1" checked="checked"/>
+                  <label for="rbOverride">@Strings.Override</label>
+                  <input type="radio" name="rbOverride" id="rbSaveAsNew" class="mousetrap" value="2"/>
+                  <label for="rbSaveAsNew">@Strings.SaveNew</label>
+                }
+                <input type="checkbox" id="chkDraft" />
+                <label for="chkDraft">@Strings.Draft</label>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="logo" href="@Url.Action("Index", "Patterns")"><img src="@Url.Content("~/Content/i/logo.png")"/></a>
+  <div id="secondaryToolbox">
+    <div id="plhViewButtons">
+      <div id="lblCoordinates"></div>
+      <button id="btnUndo" title="@Strings.Undo"></button>
+      <button id="btnRedo" title="@Strings.Redo"></button>
+      <button id="btnGrid" title="@Strings.ShowHideGrid"></button>
+      <button id="btnSharp" title="@Strings.ShowHidePixelGrid"></button>
+      <button id="btnZoomIn" title="@Strings.ZoomIn"></button>
+      <button id="btnZoomOut" title="@Strings.ZoomOut"></button>
+      <button id="btnSave" title="@Strings.Save"></button>
+    </div>
+    <div id="plhBrushButtons">
+      <button id="btnBrush1" title="@Strings.Brush1"></button>
+      <button id="btnBrush3" title="@Strings.Brush3"></button>
+      <button id="btnBrush5" title="@Strings.Brush5"></button>
+      <button id="btnBrush7" title="@Strings.Brush7"></button>
+      <button id="btnBrush8" title="@Strings.Brush8"></button>
+    </div>
+    <div id="plhSelectionButtons">
+      <button id="btnCopy" title="@Strings.Copy"></button>
+      <button id="btnPaste" title="@Strings.Paste"></button>
+      <button id="btnReflectHorizontal" title="@Strings.ReflectHorizontally"></button>
+      <button id="btnReflectVertical" title="@Strings.ReflectVertically"></button>
+      <button id="btnResize" title="@Strings.Resize"></button>
+      <button id="btnDelete" title="@Strings.Erase"></button>
+      <button id="btnDeselect" title="@Strings.Deselect"></button>
+    </div>
+  </div>
+  <div id="toolbox">
+    <div id="plhActionButtons">
+      <button id="btnMove" title="@Strings.Move"></button>
+      <button id="btnSelect" title="@Strings.Select"></button>
+      <button id="btnPick" title="@Strings.Eyedropper"></button>
+      <button id="btnBrush" title="@Strings.Brush"></button>
+      <button id="btnErase" title="@Strings.Eraser"></button>
+      <button id="btnFill" title="@Strings.Fill"></button>
+      <div id="plhColorButtons"></div>
+    </div>
+    <input type="color" id="colorPicker" />
+  </div>
+  <div id="plhLayers" class="nano">
+    <div id="plhLayersContent" class="nano-content"></div>
+  </div>
+  <div id="plhLayerButtons">
+    <button id="btnMergeLayers" title="@Strings.MergeLayers"></button>
+    <button id="btnAddLayer" title="@Strings.NewLayer"></button>
+    <button id="btnDeleteLayer" title="@Strings.DeleteLayers"></button>
+  </div>
+  <div id="plhCanvas"></div>
+  <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/reset.css")">
+  <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/styles.css")">  
+  <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/editor/css/styles.css")">  
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  @Scripts.Render("~/bundles/editor/js")
+  <script>
+    @if (Model.Pattern.Canvases != null && Model.Pattern.Canvases.Count > 0)
+    {
+      var json = JsonConvert.SerializeObject(Model.Pattern.Canvases);
+      <text>
+        @Html.Raw("var editor = new Editor('#plhCanvas', '#plhLayersContent', 30, 30, 9, '" + @Url.Content("~/api/") +"', " + json + ");")
+      </text>
+    }
+    else
+    {
+      <text>
+        @Html.Raw("var editor = new Editor('#plhCanvas', '#plhLayersContent', 30, 30, 9, '" + @Url.Content("~/api/") +"');")
+      </text>
+    }
+  </script>
+  @Html.Partial("Analytics")
+</body>
+</html>

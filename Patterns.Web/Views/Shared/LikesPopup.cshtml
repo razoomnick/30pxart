@@ -1,0 +1,27 @@
+﻿@using Patterns.Resources
+@model Patterns.Web.Models.Viewer.LikesModel
+
+<div class="shadow">
+  <div class="table">
+    <div class="table-cell">
+      <div class="popup">
+        <h2 class="header">@Strings.Likes</h2>
+        <div class="popup-content">
+          @if (Model.UsersWhoLike.Count > 0)
+          {
+            <div class="likes">
+              @foreach (var userWhoLike in @Model.UsersWhoLike)
+              {
+                @Html.Partial("UserTile", userWhoLike)
+              }
+            </div>
+          }
+          else
+          {
+            <p>@Strings.NoLikes</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

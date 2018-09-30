@@ -1,0 +1,19 @@
+﻿@using Patterns.Resources
+@model Patterns.Web.Models.Viewer.LoginModel
+@{
+  Layout = "Layout.cshtml";
+  ViewBag.Title = "Login";
+}
+
+<div class="table">
+  <div class="table-cell">
+    <div class="popup">
+      <h2 class="header">@Strings.SignInOrSignUp</h2>
+      <div class="sign-in">
+        <a class="btn-primary btn-facebook" href="@Model.FbLoginUrl">@Strings.SignInWithFacebook</a>
+        <a class="btn-primary btn-vk" href="@Model.VkLoginUrl">@Strings.SignInWithVk</a>
+        <a class="btn-primary btn-instagram" href="@Model.InstagramLoginUrl"></a>
+      </div>
+    </div>
+  </div>
+</div>
